@@ -1270,6 +1270,49 @@ transform:scale(1);
   }
 
 }
+/* MOBILE: tắt hiệu ứng nặng cho mượt */
+@media (max-width: 768px){
+
+  /* Tắt LED chạy quanh ảnh hero/album */
+  .led-frame::before,
+  .led-album::after{
+    display:none !important;
+  }
+
+  /* Bỏ blur kính (backdrop-filter rất nặng trên mobile) */
+  .glass{
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:0 8px 18px rgba(112,84,58,.06) !important;
+  }
+
+  /* Bỏ mọi animation/pulse/float */
+  .timeline-float,
+  .brand-heart,
+  .wish-btn,
+  .hero-heart,
+  .dove{
+    animation:none !important;
+  }
+
+  /* Ảnh hiện ngay, không fade/zoom/slide */
+  .gallery-item img,
+  .gallery-feature img,
+  .mobile-gallery-card img,
+  .person-card img,
+  .hero-frame img,
+  .timeline-card img{
+    animation:none !important;
+    transition:none !important;
+    transform:none !important;
+    opacity:1 !important;
+  }
+
+  /* Bỏ tim rơi */
+  .floating-heart{
+    display:none !important;
+  }
+}
     </style>
   </head>
   <body>
