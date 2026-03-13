@@ -1889,12 +1889,12 @@ transform:scale(1);
       const TRANSFER_TEXT = "mung cuoi Quang Quoc Kim Dung";
 
       const introOverlay = document.getElementById("introOverlay");
-      document.addEventListener("DOMContentLoaded", () => {
+      window.addEventListener("load", () => {
+  document.body.style.overflow = "hidden";
   setTimeout(() => {
-    const introOverlay = document.getElementById("introOverlay");
-    if (introOverlay) introOverlay.style.display = "none";
+    introOverlay.classList.add("hide");
     document.body.style.overflow = "";
-  }, 500);
+  }, 2400);
 });
 
       const weddingDate = new Date("2026-04-15T11:00:00+07:00").getTime();
