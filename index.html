@@ -2638,11 +2638,11 @@ transform:scale(1);
       }
 
 
-      /* --- FIX V6: desktop hero names never get cut off by the photo --- */
+      /* --- FIX V7: desktop hero names stay on exactly one line --- */
       @media (min-width: 1024px) {
         .hero-grid {
-          grid-template-columns: minmax(0, 1.12fr) minmax(420px, 520px) !important;
-          gap: 30px !important;
+          grid-template-columns: minmax(0, 1.28fr) minmax(360px, 470px) !important;
+          gap: 22px !important;
           align-items: center !important;
         }
 
@@ -2661,19 +2661,20 @@ transform:scale(1);
         .hero-names {
           display: flex !important;
           align-items: center !important;
-          flex-wrap: wrap !important;
-          white-space: normal !important;
-          column-gap: 0.10em !important;
-          row-gap: 0.02em !important;
+          justify-content: flex-start !important;
+          flex-wrap: nowrap !important;
+          white-space: nowrap !important;
+          gap: 0.08em !important;
           padding: 0.04em 0 0.02em !important;
-          font-size: clamp(46px, 4.5vw, 72px) !important;
-          line-height: 0.98 !important;
-          letter-spacing: -0.015em !important;
+          font-size: clamp(30px, 3vw + 6px, 62px) !important;
+          line-height: 1 !important;
+          letter-spacing: -0.02em !important;
           max-width: 100% !important;
         }
 
-        .hero-names .name-part {
-          flex: 0 1 auto !important;
+        .hero-names .name-part,
+        .hero-heart-wrap {
+          flex: 0 0 auto !important;
           min-width: 0 !important;
         }
 
@@ -2689,7 +2690,7 @@ transform:scale(1);
         .countdown,
         .btn-row,
         .quote-box {
-          max-width: 560px !important;
+          max-width: 600px !important;
         }
 
         .hero-visual {
@@ -2700,8 +2701,8 @@ transform:scale(1);
         }
 
         .hero-frame {
-          width: min(100%, 520px) !important;
-          max-width: 520px !important;
+          width: min(100%, 470px) !important;
+          max-width: 470px !important;
           min-width: 0 !important;
           margin-left: auto !important;
         }
@@ -2719,13 +2720,13 @@ transform:scale(1);
 
       @media (min-width: 1024px) and (max-width: 1366px) {
         .hero-grid {
-          grid-template-columns: minmax(0, 1.18fr) minmax(400px, 480px) !important;
-          gap: 24px !important;
+          grid-template-columns: minmax(0, 1.34fr) minmax(330px, 430px) !important;
+          gap: 18px !important;
         }
 
         .hero-names {
-          font-size: clamp(40px, 4.1vw, 58px) !important;
-          column-gap: 0.08em !important;
+          font-size: clamp(28px, 2.55vw + 4px, 48px) !important;
+          gap: 0.06em !important;
         }
 
         .hero-date,
@@ -2733,12 +2734,12 @@ transform:scale(1);
         .countdown,
         .btn-row,
         .quote-box {
-          max-width: 540px !important;
+          max-width: 620px !important;
         }
 
         .hero-frame {
-          width: min(100%, 480px) !important;
-          max-width: 480px !important;
+          width: min(100%, 430px) !important;
+          max-width: 430px !important;
         }
       }
 
@@ -2748,8 +2749,8 @@ transform:scale(1);
     <div class="intro-overlay" id="introOverlay" aria-hidden="true">
       <div class="intro-glow"></div>
       <div class="intro-content">
-		<div class="eyebrow" style="margin-bottom: 10px; letter-spacing: .28em;">Thiệp mời lễ thành hôn</div>
         <div class="intro-line"></div>
+        <div class="eyebrow" style="margin-bottom: 10px; letter-spacing: .28em;">Thiệp mời lễ thành hôn</div>
         <div class="intro-sub script-font">Quang Quốc & Kim Dung</div>
         <div class="intro-date">15.04.2026</div>
         <div class="intro-tap">Chạm để mở thiệp</div>
