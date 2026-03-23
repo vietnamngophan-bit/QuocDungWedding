@@ -12,6 +12,8 @@
       name="description"
       content="Thiệp cưới online của Quang Quốc và Kim Dung. Trân trọng kính mời bạn đến chung vui vào lúc 11 giờ, Thứ Tư ngày 15.04.2026 tại tư gia nhà trai, TDP Liên Hương - P. Hà Huy Tập - TP Hà Tĩnh."
     />
+
+    <!-- Đổi các URL tuyệt đối này sau khi host thật -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Quang Quốc & Kim Dung | Thiệp Cưới Online" />
     <meta
@@ -585,50 +587,6 @@
         text-align: right;
         font-weight: 600;
       }
-      .copyable-row,
-      .copyable-value {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .copyable-row {
-        border-radius: 14px;
-        transition: background .25s ease, transform .2s ease;
-      }
-
-      .copyable-row:hover {
-        background: rgba(255,255,255,.42);
-      }
-
-      .copyable-row:active,
-      .copyable-value:active {
-        transform: scale(.99);
-      }
-
-      .copyable-value {
-        position: relative;
-      }
-
-      .copyable-value::after {
-        content: "Chạm để copy";
-        display: inline-block;
-        margin-left: 8px;
-        font-size: 10px;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        color: var(--rose-dark);
-        opacity: .72;
-        white-space: nowrap;
-      }
-
-      @media (max-width: 768px) {
-        .copyable-value::after {
-          display: block;
-          margin-top: 4px;
-          margin-left: 0;
-          font-size: 9px;
-        }
-      }
 
       .story-wrap {
         border-top: 1px solid var(--line);
@@ -1130,9 +1088,7 @@
         right: 14px;
         bottom: 14px;
         z-index: 80;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
         gap: 10px;
       }
 
@@ -1148,7 +1104,6 @@
         justify-content: center;
         cursor: pointer;
         font-size: 18px;
-        box-shadow: 0 14px 28px rgba(160, 112, 88, 0.18);
       }
 
       .footer {
@@ -2120,27 +2075,25 @@ transform:scale(1);
 
       .floating-controls {
         z-index: 260;
-        align-items: center;
+        align-items: end;
       }
 
       .music-control-group {
         display: inline-flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        justify-content: flex-end;
+        gap: 8px;
       }
 
       .music-wave {
-        width: 52px;
-        height: 52px;
         display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
+        align-items: flex-end;
+        gap: 3px;
+        height: 38px;
+        padding: 0 10px;
         border-radius: 999px;
-        background: rgba(255,255,255,.72);
-        border: 1px solid rgba(255,255,255,.78);
+        background: rgba(255,255,255,.68);
+        border: 1px solid rgba(255,255,255,.72);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 14px 28px rgba(160, 112, 88, 0.12);
@@ -2148,30 +2101,27 @@ transform:scale(1);
 
       .music-wave span {
         display: block;
-        width: 4px;
+        width: 3px;
         border-radius: 999px;
-        background: linear-gradient(180deg, rgba(208,69,97,.98), rgba(180,117,79,.98));
-        opacity: .9;
+        background: linear-gradient(180deg, rgba(208,69,97,.96), rgba(180,117,79,.96));
+        opacity: .82;
         transform-origin: bottom center;
-        animation: musicBars 0.95s ease-in-out infinite;
+        animation: musicBars 1.15s ease-in-out infinite;
+        animation-play-state: paused;
       }
 
-      .music-wave span:nth-child(1) { height: 13px; animation-delay: -.12s; }
-      .music-wave span:nth-child(2) { height: 22px; animation-delay: -.42s; }
-      .music-wave span:nth-child(3) { height: 16px; animation-delay: -.24s; }
-
-      .music-wave.is-playing {
-        box-shadow: 0 16px 30px rgba(198, 78, 105, 0.18);
-      }
+      .music-wave span:nth-child(1) { height: 10px; animation-delay: -.1s; }
+      .music-wave span:nth-child(2) { height: 16px; animation-delay: -.45s; }
+      .music-wave span:nth-child(3) { height: 22px; animation-delay: -.22s; }
+      .music-wave span:nth-child(4) { height: 14px; animation-delay: -.6s; }
 
       .music-wave.is-playing span {
-        opacity: 1;
+        animation-play-state: running;
       }
 
       @keyframes musicBars {
-        0%, 100% { transform: scaleY(.45) translateY(0); opacity: .68; }
-        35% { transform: scaleY(1.02) translateY(-1px); opacity: .92; }
-        65% { transform: scaleY(1.22) translateY(-2px); opacity: 1; }
+        0%, 100% { transform: scaleY(.55); opacity: .72; }
+        50% { transform: scaleY(1.08); opacity: 1; }
       }
 
       @media (max-width: 768px) {
@@ -2199,28 +2149,14 @@ transform:scale(1);
         .decor-heart--6 { top: 126vh; left: 2vw; }
         .decor-heart--7 { top: 278vh; right: 2vw; }
 
-        .floating-controls {
-          right: 12px;
-          bottom: max(12px, env(safe-area-inset-bottom));
-          gap: 9px;
-        }
-
-        .music-control-group {
-          gap: 9px;
-        }
-
-        .music-wave,
-        .music-toggle {
-          width: 48px;
-          height: 48px;
-        }
-
         .music-wave {
-          gap: 3px;
+          height: 34px;
+          padding: 0 8px;
+          gap: 2px;
         }
 
         .music-wave span {
-          width: 3px;
+          width: 2.5px;
         }
       }
 
@@ -2247,7 +2183,7 @@ transform:scale(1);
         <div class="eyebrow" style="margin-bottom: 10px; letter-spacing: .28em;">Thiệp mời lễ thành hôn</div>
         <div class="intro-sub script-font">Quang Quốc & Kim Dung</div>
         <div class="intro-date">15.04.2026</div>
-        <div class="intro-tap">Chạm để mở thiệp</div>
+        <div class="intro-tap">Chạm để mở thiệp & bật nhạc</div>
         <button class="btn btn-primary intro-enter" type="button" id="enterInviteBtn">Mở thiệp</button>
       </div>
     </div>
@@ -2571,10 +2507,10 @@ transform:scale(1);
               
               <a
                 class="video-link"
-                href="https://youtube.com/shorts/Tfive-tIpv8"
+                href="https://youtu.be/JlTyzaLFlLg"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Mở video trên YouTube"
+                aria-label="Mở video cưới trên YouTube"
               >
                 <img src="images/video-poster.webp" alt="Poster video cưới Quang Quốc và Kim Dung" loading="lazy" decoding="async" />
                 <span class="video-play" aria-hidden="true">▶</span>
@@ -2613,7 +2549,7 @@ transform:scale(1);
                 <div class="btn-row" style="margin-top:20px;">
                   <a
                     class="btn btn-primary"
-                    href="https://maps.app.goo.gl/Ajy1k9EvcxXuPgVZ6"
+                    href="https://maps.google.com/?q=TDP+Liên+Hương+P.+Hà+Huy+Tập+TP+Hà+Tĩnh"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -2646,17 +2582,17 @@ transform:scale(1);
                   <div class="family-key">Ngân hàng</div>
                   <div class="bank-value">ViettinBank CN HA TINH - HOI SO</div>
                 </div>
-                <div class="bank-item copyable-row" data-copy="107882580217" data-copy-message="Đã copy số tài khoản.">
+                <div class="bank-item">
                   <div class="family-key">Số tài khoản</div>
-                  <div class="bank-value copyable-value" id="bankAccount">107882580217</div>
+                  <div class="bank-value" id="bankAccount">107882580217</div>
                 </div>
                 <div class="bank-item">
                   <div class="family-key">Người thụ hưởng</div>
                   <div class="bank-value">TRAN THI DUNG</div>
                 </div>
-                <div class="bank-item copyable-row" data-copy="mung cuoi Quang Quoc Kim Dung" data-copy-message="Đã copy nội dung chuyển khoản.">
+                <div class="bank-item">
                   <div class="family-key">Nội dung</div>
-                  <div class="bank-value copyable-value">mung cuoi Quang Quoc Kim Dung</div>
+                  <div class="bank-value">mung cuoi Quang Quoc Kim Dung</div>
                 </div>
               </div>
 
@@ -2691,13 +2627,13 @@ transform:scale(1);
                     <div class="vietqr-key">Người thụ hưởng</div>
                     <div class="vietqr-val">TRAN THI DUNG</div>
                   </div>
-                  <div class="vietqr-row copyable-row" data-copy="107882580217" data-copy-message="Đã copy số tài khoản.">
+                  <div class="vietqr-row">
                     <div class="vietqr-key">Số tài khoản</div>
-                    <div class="vietqr-val copyable-value">107882580217</div>
+                    <div class="vietqr-val">107882580217</div>
                   </div>
-                  <div class="vietqr-row copyable-row" data-copy="mung cuoi Quang Quoc Kim Dung" data-copy-message="Đã copy nội dung chuyển khoản.">
+                  <div class="vietqr-row">
                     <div class="vietqr-key">Nội dung</div>
-                    <div class="vietqr-val copyable-value">mung cuoi Quang Quoc Kim Dung</div>
+                    <div class="vietqr-val">mung cuoi Quang Quoc Kim Dung</div>
                   </div>
                 </div>
               </div>
@@ -2735,7 +2671,7 @@ transform:scale(1);
             </p>
             <div class="wish-actions" style="margin-top:18px; display:grid; gap:12px;">
               <a class="btn btn-primary blink-soft" href="https://zalo.me/0985546300" target="_blank" rel="noopener">Gửi lời chúc qua Zalo</a>
-              <a class="btn btn-secondary" href="https://fb.me/tranthidung1405" target="_blank" rel="noopener">Nhắn qua Facebook</a>
+              <a class="btn btn-secondary" href="https://www.messenger.com/t/24544759841806358" target="_blank" rel="noopener">Nhắn qua Messenger</a>
               <a class="btn btn-soft" href="tel:0985546300">Gọi điện chúc mừng</a>
             </div>
           </div>
@@ -2757,9 +2693,9 @@ transform:scale(1);
     <div class="floating-controls">
       <div class="music-control-group">
         <div class="music-wave" id="musicWave" aria-hidden="true">
-          <span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
         </div>
-        <button class="music-toggle" id="musicToggle" aria-label="Bật tắt nhạc">▶</button>
+        <button class="music-toggle" id="musicToggle" aria-label="Bật tắt nhạc">♫</button>
       </div>
       <button class="music-toggle" id="scrollTopBtn" aria-label="Lên đầu trang">↑</button>
     </div>
@@ -2797,7 +2733,7 @@ transform:scale(1);
       let heartTimer = null;
 
       function setMusicStateUI(isPlaying) {
-        if (musicToggle) musicToggle.textContent = isPlaying ? "❚❚" : "▶";
+        if (musicToggle) musicToggle.textContent = isPlaying ? "❚❚" : "♫";
         musicWave?.classList.toggle("is-playing", !!isPlaying);
       }
 
@@ -2805,7 +2741,6 @@ transform:scale(1);
         if (!introOverlay) return;
         introOverlay.classList.add("hide");
         document.body.style.overflow = "";
-        try { sessionStorage.setItem("wedding_intro_seen", "1"); } catch (e) {}
       }
 
       async function enterInvite() {
@@ -2817,12 +2752,7 @@ transform:scale(1);
 
       function bootIntro() {
         if (!introOverlay) return;
-        let seen = false;
-        try { seen = sessionStorage.getItem("wedding_intro_seen") === "1"; } catch (e) {}
-        if (seen) {
-          introOverlay.classList.add("hide");
-          return;
-        }
+        introOverlay.classList.remove("hide");
         document.body.style.overflow = "hidden";
         introOverlay.addEventListener("click", enterInvite, { once: true });
         enterInviteBtn?.addEventListener("click", function (e) {
@@ -3011,88 +2941,6 @@ transform:scale(1);
       }
 
 
-      let giftNoteTimer = null;
-
-      function setGiftFeedback(message, target = giftNote, isError = false) {
-        if (!target) return;
-        target.textContent = message;
-        target.style.color = isError ? "var(--rose-dark)" : "var(--accent-dark)";
-        if (giftNoteTimer) window.clearTimeout(giftNoteTimer);
-        giftNoteTimer = window.setTimeout(() => {
-          target.textContent = "";
-        }, 2600);
-      }
-
-      function copyByTextarea(text) {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "fixed";
-        textarea.style.top = "-9999px";
-        textarea.style.left = "-9999px";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
-        textarea.setSelectionRange(0, textarea.value.length);
-        let success = false;
-        try {
-          success = document.execCommand("copy");
-        } catch (e) {
-          success = false;
-        }
-        document.body.removeChild(textarea);
-        return success;
-      }
-
-      async function copyText(text, successMessage, target = giftNote) {
-        const normalizedText = String(text || "").trim();
-        if (!normalizedText) {
-          setGiftFeedback("Không có nội dung để copy.", target, true);
-          return false;
-        }
-
-        let copied = false;
-        try {
-          if (window.isSecureContext && navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(normalizedText);
-            copied = true;
-          }
-        } catch (e) {
-          copied = false;
-        }
-
-        if (!copied) {
-          copied = copyByTextarea(normalizedText);
-        }
-
-        if (copied) {
-          setGiftFeedback(successMessage || "Đã copy.", target, false);
-          return true;
-        }
-
-        setGiftFeedback("Không copy tự động được. Bạn hãy nhấn giữ để sao chép nhé.", target, true);
-        return false;
-      }
-
-      function bindCopyableRows() {
-        document.querySelectorAll(".copyable-row").forEach((row) => {
-          const text = row.getAttribute("data-copy") || row.querySelector(".copyable-value")?.textContent || "";
-          const message = row.getAttribute("data-copy-message") || "Đã copy.";
-          row.setAttribute("role", "button");
-          row.setAttribute("tabindex", "0");
-          row.setAttribute("title", "Chạm để copy");
-          row.addEventListener("click", () => {
-            copyText(text, message, giftNote);
-          });
-          row.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              copyText(text, message, giftNote);
-            }
-          });
-        });
-      }
-
       const copyBankBtn = document.getElementById("copyBankBtn");
       const copyTransferTextBtn = document.getElementById("copyTransferTextBtn");
       copyBankBtn?.addEventListener("click", function () {
@@ -3191,7 +3039,6 @@ transform:scale(1);
         setupRevealObserver();
         setupLazyImages();
         prewarmGallery();
-        bindCopyableRows();
         updateCountdown();
         window.setInterval(updateCountdown, 1000);
 
